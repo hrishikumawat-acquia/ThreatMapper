@@ -61,7 +61,7 @@ func main() {
 	if consolePort != "" && consolePort != "443" {
 		mgmtConsoleUrl += ":" + consolePort
 	}
-	scopeApiUrl := fmt.Sprintf("https://%s/topology-api", mgmtConsoleUrl)
+	scopeApiUrl := fmt.Sprintf("http://%s/topology-api", mgmtConsoleUrl)
 	var httpClient *http.Client
 	for {
 		if httpClient == nil {

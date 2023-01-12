@@ -113,7 +113,7 @@ func GetKubernetesClusterId() string {
 	client := &http.Client{Transport: &http.Transport{TLSClientConfig: &tls.Config{RootCAs: caCertPool}}}
 
 	// Get kubeSystemNamespaceUid
-	url := fmt.Sprintf("https://%s:%s/api/v1/namespaces/kube-system", serviceHost, servicePort)
+	url := fmt.Sprintf("http://%s:%s/api/v1/namespaces/kube-system", serviceHost, servicePort)
 	req, err := http.NewRequest(http.MethodGet, url, bytes.NewBuffer([]byte{}))
 	if err == nil {
 		req.Header.Add("Content-Type", "application/json")
@@ -224,7 +224,7 @@ func GetKubernetesDetails() (string, string, string, string, error) {
 
 	// Get kubernetesVersion, kubernetesNodeRole
 	k8sHostName := GetRealHostName()
-	url := fmt.Sprintf("https://%s:%s/api/v1/nodes/%s", serviceHost, servicePort, k8sHostName)
+	url := fmt.Sprintf("http://%s:%s/api/v1/nodes/%s", serviceHost, servicePort, k8sHostName)
 	req, err := http.NewRequest(http.MethodGet, url, bytes.NewBuffer([]byte{}))
 	if err == nil {
 		req.Header.Add("Content-Type", "application/json")
