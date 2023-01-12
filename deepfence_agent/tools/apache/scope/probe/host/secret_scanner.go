@@ -228,7 +228,7 @@ func ingestScanData(secretScanMsg string, index string) error {
 		return err
 	}
 	for {
-		httpReq, err := http.NewRequest("POST", "https://"+mgmtConsoleUrl+"/df-api/ingest?doc_type="+index, postReader)
+		httpReq, err := http.NewRequest("POST", "http://"+mgmtConsoleUrl+"/df-api/ingest?doc_type="+index, postReader)
 		if err != nil {
 			return err
 		}

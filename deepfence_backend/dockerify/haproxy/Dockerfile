@@ -7,7 +7,7 @@ RUN /bin/bash /go/genCert.sh
 
 
 FROM haproxy:2.4-alpine3.15
-MAINTAINER Deepfence Inc
+MAINTAINER Hrishi.kumawat@acquia.com
 LABEL deepfence.role=system
 
 USER root
